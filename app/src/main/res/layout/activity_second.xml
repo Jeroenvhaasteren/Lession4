@@ -10,11 +10,22 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="org.bts.atry.lession4.SecondActivity">
 
-    <TextView
-        android:text="Hello Second Activity"
+    <Button
+        android:text="Send back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/textView" />
+        android:id="@+id/btn_return_info_second_activity" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
+        android:layout_marginTop="40dp"
+        android:id="@+id/et_name_input_second_activity"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
