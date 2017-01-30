@@ -27,7 +27,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
         final Button btnStartActivity = (Button) findViewById(R.id.btn_start_activity);
         final Button btnMainActivity2 = (Button) findViewById(R.id.btn_main_activity_2);
         final Button btnMainActivity3 = (Button) findViewById(R.id.btn_main_activity_3);
-
         btnStartActivity.setOnClickListener(this);
         btnMainActivity2.setOnClickListener(this);
         btnMainActivity3.setOnClickListener(this);
@@ -127,4 +126,20 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString("myTextViewValue", this.mTvInfo.getText().toString());
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        String line = savedInstanceState.getString("myTextViewValue");
+        this.mTvInfo.setText(line);
+
+    }
 }
