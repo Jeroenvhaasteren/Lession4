@@ -12,7 +12,7 @@ import android.widget.Toast;
  * Created by Jeroen on 23/01/2017.
  */
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -25,27 +25,35 @@ public class MainActivity extends Activity {
         Button btnMainActivity2 = (Button) findViewById(R.id.btn_main_activity_2);
         Button btnMainActivity3 = (Button) findViewById(R.id.btn_main_activity_3);
 
-        btnStartActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(MainActivity.TAG,"Button Clicked");
-                startSecondActivity(v);
-            }
-        });
+//        btnStartActivity.setOnClickListener(new OnClickClass());
+//        btnMainActivity2.setOnClickListener(new OnClickClass());
+//        btnMainActivity3.setOnClickListener(new OnClickClass());
 
-        btnMainActivity2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(MainActivity.TAG,"Button 2 Clicked");
-            }
-        });
+        btnStartActivity.setOnClickListener(this);
+        btnMainActivity2.setOnClickListener(this);
+        btnMainActivity3.setOnClickListener(this);
 
-        btnMainActivity3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d(MainActivity.TAG,"Button 3 Clicked");
-            }
-        });
+//        btnStartActivity.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d(MainActivity.TAG,"Button Clicked");
+//                startSecondActivity(v);
+//            }
+//        });
+//
+//        btnMainActivity2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d(MainActivity.TAG,"Button 2 Clicked");
+//            }
+//        });
+//
+//        btnMainActivity3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Log.d(MainActivity.TAG,"Button 3 Clicked");
+//            }
+//        });
 
         Toast.makeText(this, "I'am Created", Toast.LENGTH_SHORT).show();
         Log.d(MainActivity.TAG, "onCreate()");
@@ -107,4 +115,19 @@ public class MainActivity extends Activity {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btn_start_activity) {
+
+            Log.e("OnclickClass", "Button1 Clicked");
+
+        } else if(v.getId() == R.id.btn_main_activity_2) {
+            Log.d("OnclickClass", "Button2 Clicked");
+            startSecondActivity(v);
+
+        } else if (v.getId() == R.id.btn_main_activity_3 ) {
+            Log.w("OnclickClass", "Button3 Clicked");
+
+        }
+    }
 }
